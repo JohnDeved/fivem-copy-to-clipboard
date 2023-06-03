@@ -1,0 +1,17 @@
+<script>
+  function copyToClipboard(text) {
+    var input = document.createElement('textarea')
+    input.innerHTML = text
+    document.body.appendChild(input)
+    input.select()
+    var result = document.execCommand('copy')
+    document.body.removeChild(input)
+    return result
+  }
+
+  window.addEventListener('message', (event) => {
+    if (event.data.type === 'clipboard') {
+      copyToClipboard(event.data.data)
+    }
+  })
+</script>
