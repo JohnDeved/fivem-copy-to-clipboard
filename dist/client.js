@@ -8,7 +8,7 @@
       data: text
     }));
     SetNotificationTextEntry("STRING");
-    AddTextComponentString(`Copied ~y~${text}~s~ to clipboard`);
+    AddTextComponentString(`Copied ~y~${text.length > 30 ? `${text.slice(0, 30)}...` : text}~s~ to clipboard`);
     DrawNotification(false, false);
   });
 })();
